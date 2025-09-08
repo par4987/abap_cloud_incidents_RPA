@@ -1,0 +1,168 @@
+@Metadata.layer: #CORE
+
+// Header Info
+@UI: { headerInfo: { typeName:       'Incident',                          // Selecting one register
+                     typeNamePlural: 'Incidents',                         // Selecting multiple registers
+                     title:          { type: #STANDARD,
+                                       label: 'Incidents',                // Title of the register *Details Instance*
+                                       value: 'IncidentID' } },           // Field to be used as title
+       presentationVariant: [{ sortOrder: [{ by: 'IncidentID',            // Sorting order instances by IncidentID
+                                            direction: #ASC }],           // Ascending order
+       visualizations: [{ type: #AS_LINEITEM }] }] }                      // Line item visualization for instances
+
+annotate view ZC_DT_INCT_1237 with
+{
+  @EndUserText.label: 'IncUUID'                             //Label for Facet
+  @UI.facet: [{ id:            'Incident',
+                purpose:       #STANDARD,
+                type:          #IDENTIFICATION_REFERENCE,   // Type of facet
+                label:         'Incident',
+                position:      10 },
+              { id:            'History',
+                purpose:       #STANDARD,
+                type:          #LINEITEM_REFERENCE,         // Type of facet
+                label:         'History',
+                position:      20,
+                targetElement: '_History'}]                 // Target element for the facet with the associated line item
+          // Target element for the facet with the associated line item
+
+  @UI: {lineItem: [{ position: 10,
+                  importance: #HIGH,                        // High importance according to requirements
+                  label: 'IncUUID'},
+                  { type: #FOR_ACTION,                      // Marks this field for action usage in Fiori
+                  dataAction: 'changeStatus',               // Name of the action METHOD
+                  label: 'Change Status',                   // Label of the action in the Fiori application
+                  position: 10 }],
+  identification: [{ position: 10,                          // Identification is used in the instance details of the Fiori application
+                  label: 'IncUUID' },
+                  { type: #FOR_ACTION,
+                  dataAction: 'changeStatus',
+                  label: 'Change Status',
+                  position: 10 } ],
+  selectionField: [{ position: 10 }]}                       // Selection field is used in the Fiori application for filtering instances
+
+  @UI.hidden: true                                          // IncUUID Hidden field from the UI
+  IncUUID;
+
+  @EndUserText.label: 'Incident ID'                         // Using label because the field is a DE standard
+  @UI: {lineItem: [{ position: 20,                          // Position of the field IncidentID
+                  importance: #MEDIUM,                      // Medium importance according to requirements
+                  label:'Incident ID'   } ],
+  identification: [{ position: 20  } ],                     // Identification in the intance details
+  selectionField: [{ position: 20 }]}                       // Selection field for filtering instances in the Fiori application
+  IncidentID;
+
+  @EndUserText.label: 'Tittle'                              // Using label because the field is a DE standard
+  @UI: {lineItem: [{ position: 30,
+                  importance: #LOW,                         // Low importance according to requirements
+                  label: 'Tittle'   } ],
+  identification: [{ position: 30  } ],
+  selectionField: [{ position: 30 }]}
+  Title;
+
+  @EndUserText.label: 'Description'                         // Using label because the field is a DE standard
+  @UI: {lineItem: [{ position: 40,
+                  importance: #LOW,                         // Low importance according to requirements
+                  label: 'Description'   } ],
+  identification: [{ position: 40  } ],
+  selectionField: [{ position: 40 }]}
+  Description;
+
+  @Consumption.valueHelpDefinition: [ { entity.name: 'zdd_status_vh_fjcm', // Entity value help definition created for the Status field ********
+                                        entity.element: 'StatusCode',      // This element is the one that will be used in the value help
+                                        useForValidation: true } ]         // Validate the StatusCode exits
+
+  @UI: {lineItem: [{ position: 50,
+                  importance: #LOW }],                                       // Low importance according to requirements
+
+  identification: [{ position: 50  }],
+  selectionField: [{ position: 50 }]}
+  Status;
+  
+@Consumption.valueHelpDefinition: [{
+    entity.name       : 'zdd_priority_vh_fjcm',
+    entity.element    : 'PriorityCode',
+    useForValidation  : true
+}]
+@EndUserText.label: 'Priority'
+@UI.lineItem: [{
+    position    : 60,
+    targetElement: 'Priority',
+    criticality : 'PriorityCriticality',
+    importance  : #HIGH
+}]
+
+@UI.dataPoint: {
+   qualifier: 'Priority',
+   criticality: 'PriorityCriticality',
+   criticalityRepresentation: #WITH_ICON   // 👈 Esto activa el ícono + color
+}
+
+@UI.identification: [{ position: 60 }]
+@UI.selectionField: [{ position: 60 }]
+Priority;
+
+@UI.hidden: true
+PriorityCriticality;
+  
+  @EndUserText.label: 'Creation Date'                         // Using label because the field is a DE standard
+  @UI: {lineItem: [{ position: 70,
+                  importance: #LOW,
+                  label: 'Creation Date' }],
+  identification: [{ position: 70  } ],
+  selectionField: [{ position: 70 }]}
+  @Consumption.filter: { selectionType: #INTERVAL }  // Calendar
+  CreationDate;
+
+  @EndUserText.label: 'Changed Date'                         // Using label because the field is a DE standard
+  @UI: {lineItem: [{ position: 80,
+                  importance: #LOW,
+                  label: 'Changed Date' }],
+  identification: [{ position: 80  } ],
+  selectionField: [{ position: 80 }]}
+  @Consumption.filter: { selectionType: #INTERVAL }  // Calendar
+  ChangedDate;
+
+  @UI: {lineItem: [{ position: 90,
+                  importance: #LOW,
+                  label: 'Local Created By' }],
+  identification: [{ position: 90  } ],
+  selectionField: [{ position: 90 }]}
+  @UI.hidden: true
+  LocalCreatedBy;
+
+  @UI: {lineItem: [{ position: 100,
+                  importance: #LOW,
+                  label: 'Local Created At' }],
+  identification: [{ position: 100  } ],
+  selectionField: [{ position: 100 }]}
+  @UI.hidden: true
+  LocalCreatedAt;
+
+  @UI: {lineItem: [{ position: 100,
+                  importance: #LOW,
+                  label: 'Local Last Changed By' }],
+  identification: [{ position: 110  } ],
+  selectionField: [{ position: 110 }]}
+  @UI.hidden: true
+  LocalLastChangedBy;
+
+  @UI: {lineItem: [{ position: 120,
+                  importance: #LOW,
+                  label: 'Local Last Changed At' }],
+  identification: [{ position: 120  } ],
+  selectionField: [{ position: 120 }]}
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI: {lineItem: [{ position: 130,
+                  importance: #LOW,
+                  label: 'Last Changed At' }],
+  identification: [{ position: 130  } ],
+  selectionField: [{ position: 130 }]}
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  _History;
+}
