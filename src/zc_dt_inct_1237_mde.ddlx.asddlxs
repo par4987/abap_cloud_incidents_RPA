@@ -52,10 +52,10 @@ annotate view ZC_DT_INCT_1237 with
   selectionField: [{ position: 20 }]}                       // Selection field for filtering instances in the Fiori application
   IncidentID;
 
-  @EndUserText.label: 'Tittle'                              // Using label because the field is a DE standard
+  @EndUserText.label: 'Title'                              // Using label because the field is a DE standard
   @UI: {lineItem: [{ position: 30,
                   importance: #LOW,                         // Low importance according to requirements
-                  label: 'Tittle'   } ],
+                  label: 'Title'   } ],
   identification: [{ position: 30  } ],
   selectionField: [{ position: 30 }]}
   Title;
@@ -68,9 +68,10 @@ annotate view ZC_DT_INCT_1237 with
   selectionField: [{ position: 40 }]}
   Description;
 
-  @Consumption.valueHelpDefinition: [ { entity.name: 'zdd_status_vh_fjcm', // Entity value help definition created for the Status field ********
-                                        entity.element: 'StatusCode',      // This element is the one that will be used in the value help
-                                        useForValidation: true } ]         // Validate the StatusCode exits
+  @Consumption.valueHelpDefinition: [ { 
+    entity.name: 'zdd_status_vh_1237', // Entity value help definition created for the Status field ********
+    entity.element: 'StatusCode',      // This element is the one that will be used in the value help
+    useForValidation: true } ]         // Validate the StatusCode exits
 
   @UI: {lineItem: [{ position: 50,
                   importance: #LOW }],                                       // Low importance according to requirements
@@ -79,8 +80,8 @@ annotate view ZC_DT_INCT_1237 with
   selectionField: [{ position: 50 }]}
   Status;
   
-@Consumption.valueHelpDefinition: [{
-    entity.name       : 'zdd_priority_vh_fjcm',
+@Consumption.valueHelpDefinition: [{ 
+    entity.name       : 'zdd_priority_vh_1237',
     entity.element    : 'PriorityCode',
     useForValidation  : true
 }]
@@ -95,7 +96,7 @@ annotate view ZC_DT_INCT_1237 with
 @UI.dataPoint: {
    qualifier: 'Priority',
    criticality: 'PriorityCriticality',
-   criticalityRepresentation: #WITH_ICON   // 👈 Esto activa el ícono + color
+   criticalityRepresentation: #WITHOUT_ICON   // Solo color
 }
 
 @UI.identification: [{ position: 60 }]

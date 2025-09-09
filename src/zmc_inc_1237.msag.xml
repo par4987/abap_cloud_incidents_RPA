@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZMC_INC_1237</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Textos mensaje Incidentes</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_INC_1237</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Status &apos;&amp;1&apos; is not valid</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_INC_1237</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Incident &apos;&amp;1&apos; not found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_INC_1237</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT> Incident &apos;&amp;1&apos; created successfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_INC_1237</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Status change from &apos;&amp;1&apos; to &apos;&amp;2&apos; requires approval</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_INC_1237</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT> Processing incident &apos;&amp;1&apos;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMC_INC_1237</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Creation date cannot be in the future for incident &apos;&amp;1&apos;</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -23,9 +23,9 @@ as projection on ZR_DT_INCT_1237
       Description,
     Status,
     Priority,
-                // Virtual element para criticality (0..3)
+      // Virtual element para criticality (0..3)
       @EndUserText.label: 'PriorityCriticality' // Label for the virtual field     
-      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_INCT_PRIO_VE_FJCM'
+      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_INCT_PRIO_VE_1237' // Class that calculates the value of the virtual field
  virtual     PriorityCriticality : abap.int1,
 @Search.defaultSearchElement: true  // Default search element
       @Search.fuzzinessThreshold: 0.8     // Fuzziness threshold for search *Umbral de búsqueda*

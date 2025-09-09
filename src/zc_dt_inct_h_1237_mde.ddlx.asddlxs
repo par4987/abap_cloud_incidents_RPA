@@ -1,0 +1,81 @@
+@Metadata.layer: #CORE
+@UI: { createHidden: true,
+       headerInfo: { typeName:       'History',                       // Selecting one register
+                     typeNamePlural: 'Histories',                     // Selecting multiple registers
+                     title:          { type: #STANDARD,
+                                       label: 'Incident History',     // Title of the register *Details Instance*
+                                       value: 'HisID' } },            // Field to be used as title
+       presentationVariant: [{ sortOrder: [{ by: 'NewStatus',         // Sorting order instances by IncidentID
+                                          direction: #DESC } ],       // Descending order
+       visualizations: [{ type: #AS_LINEITEM}]}] }                    // Line item visualization for instances
+
+annotate entity ZC_DT_INCT_H_1237 with
+{
+  
+  @UI.facet: [ { id:              'History',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Incident History',
+                 position:        10 }]
+  @EndUserText.label: 'History UUID'                         // Using label because the field is a DE standard                
+  @UI: { lineItem: [{ position: 10,
+                   importance: #HIGH,
+                   label: 'HisUUID' }],
+  identification:  [{ position: 10 }]}
+  @UI.hidden:true
+  HisUuid;
+  
+  @EndUserText.label: 'Incident UUID'                         // Using label because the field is a DE standard
+  @UI: { lineItem: [{ position: 20, 
+                   importance: #HIGH,
+                   label: 'IncUUID' }],
+  identification:  [{ position: 20 }]}  
+  @UI.hidden: true
+  IncUuid;
+  
+  @EndUserText.label: 'History ID'                         // Using label because the field is a DE standard
+  @UI: { lineItem: [{ position: 30, 
+                   importance: #HIGH,
+                   label: 'History ID' }],
+  identification: [{ position: 30 }]}
+  Hisid;
+  
+  @EndUserText.label: 'Previous Status'                         // Using label because the field is a DE standard
+  @UI: { lineItem: [{ position: 40, 
+                   importance: #MEDIUM,
+                   label: 'Previous Status' }],
+  identification: [{ position: 40 }]}
+  PreviousStatus;
+  
+  @EndUserText.label: 'New Status'                         // Using label because the field is a DE standard  
+  @UI: { lineItem: [{ position: 50, 
+                   importance: #LOW,
+                   label: 'New Status' }],
+  identification: [{ position: 50 }]}
+  NewStatus;
+  
+  @EndUserText.label: 'Text'                         // Using label because the field is a DE standard
+  @UI: { lineItem: [{ position: 60, 
+                   importance: #LOW,
+                   label: 'Text' }],
+  identification: [{ position: 60 }]}
+  Text;
+  
+  @UI.hidden:true
+  LocalCreatedBy;
+  
+  @UI.hidden:true
+  LocalCreatedAt;
+  
+  @UI.hidden:true
+  LocalLastChangedBy;
+  
+  @UI.hidden:true
+  LocalLastChangedAt;
+  
+  @UI.hidden:true
+  LastChangedAt;
+  
+  @UI.hidden: true
+  _Incident;
+}

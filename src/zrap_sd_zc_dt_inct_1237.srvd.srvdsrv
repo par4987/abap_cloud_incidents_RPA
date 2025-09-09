@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition Incidentes'
+define service ZRAP_SD_ZC_DT_INCT_1237 {
+  expose ZC_DT_INCT_1237   as Incidentes;
+  expose ZC_DT_INCT_H_1237 as HistorialIncidentes;
+}
